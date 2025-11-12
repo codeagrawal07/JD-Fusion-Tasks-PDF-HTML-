@@ -69,26 +69,3 @@ This project uses the Google Generative AI API.
         ```
 
     **Note:** You must set this variable in the *same terminal session* where you will run the Streamlit app.
-
-### 4. ❗ Important Code Correction
-
-The `ChatGoogleGenerativeAI` call in your `app.py` file needs to be updated to the correct `langchain` syntax.
-
-Replace the entire `# ---------- LLM GENERATION ----------` block in your `app.py` file with the following code:
-
-```python
-    # ---------- LLM GENERATION ----------
-    with st.spinner("🧠 Generating HTML with LLM..."):
-        try:
-           
-            llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
-            
-            # The ChatGoogleGenerativeAI model uses .invoke() and returns a .content attribute
-            # System messages are not directly supported; we combine the instruction into the user prompt.
-            response = llm.invoke(prompt)
-            html_output = response.content
-
-        except Exception as e:
-            st.error(f"An error occurred while calling the AI model: {e}")
-            st.error("Please make sure your GOOGLE_API_KEY is set correctly in your environment.")
-            html_output = f"<html><body><h1>Error</h1><p>Could not generate HTML: {e}</p></body></html>"
