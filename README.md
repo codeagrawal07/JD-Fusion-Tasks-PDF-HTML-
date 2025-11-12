@@ -80,9 +80,8 @@ Replace the entire `# ---------- LLM GENERATION ----------` block in your `app.p
     # ---------- LLM GENERATION ----------
     with st.spinner("🧠 Generating HTML with LLM..."):
         try:
-            # NOTE: 'gemini-2.5-flash' is not a valid model. 
-            # Using 'gemini-1.5-flash', the current latest flash model.
-            llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+           
+            llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
             
             # The ChatGoogleGenerativeAI model uses .invoke() and returns a .content attribute
             # System messages are not directly supported; we combine the instruction into the user prompt.
