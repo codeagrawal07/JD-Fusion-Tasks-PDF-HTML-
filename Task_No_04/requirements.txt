@@ -1,1 +1,6 @@
+streamlit
+pdfplumber
+PyMuPDF
+langchain-google-genai
+pillow
 
